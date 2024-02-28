@@ -17,12 +17,12 @@ function checkGuess() {
     const inputElement = document.getElementById('guessInput');
 
     if (guess === secretNumber) {
-        resultElement.innerHTML = `Parabéns! Você acertou em ${attempts} tentativas.`;
+        resultElement.textContent = `Parabéns! Você acertou em ${attempts} tentativas.`;
         resultElement.style.color = 'green';
         inputElement.setAttribute('disabled', 'true');
     } else {
         const hint = guess < secretNumber ? 'Muito baixo.' : 'Muito alto.';
-        resultElement.innerHTML = `Errado. ${hint} Tente novamente.`;
+        resultElement.textContent = `Errado. ${hint} Tente novamente.`;
         resultElement.style.color = 'red';
     }
 }
