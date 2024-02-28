@@ -13,13 +13,16 @@ function checkGuess() {
 
     attempts++;
 
+    const resultElement = document.getElementById('result');
+    const inputElement = document.getElementById('guessInput');
+
     if (guess === secretNumber) {
-        document.getElementById('result').innerHTML = `Parabéns! Você acertou em ${attempts} tentativas.`;
-        document.getElementById('result').style.color = 'green';
-        document.getElementById('guessInput').setAttribute('disabled', 'true');
+        resultElement.innerHTML = `Parabéns! Você acertou em ${attempts} tentativas.`;
+        resultElement.style.color = 'green';
+        inputElement.setAttribute('disabled', 'true');
     } else {
         const hint = guess < secretNumber ? 'Muito baixo.' : 'Muito alto.';
-        document.getElementById('result').innerHTML = `Errado. ${hint} Tente novamente.`;
-        document.getElementById('result').style.color = 'red';
+        resultElement.innerHTML = `Errado. ${hint} Tente novamente.`;
+        resultElement.style.color = 'red';
     }
 }
