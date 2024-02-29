@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tiger Advinha</title>
+    <title>Jogo de Adivinhação</title>
     <style>
         body {
             font-family: 'Arial', sans-serif;
@@ -20,11 +20,11 @@
             border-radius: 8px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
             text-align: center;
+            position: relative; /* Adicionado para que a posição absoluta funcione em relação a este contêiner */
+            overflow: hidden; /* Garante que a imagem não ultrapasse o contêiner */
         }
         h1 {
             color: #3498db; /* Azul mais claro */
-            position: relative; /* Posição relativa para que a imagem possa ser posicionada absolutamente em relação a este elemento */
-            overflow: hidden; /* Para garantir que a imagem não ultrapasse o contêiner */
         }
         h1::before {
             content: ""; /* Criar um pseudo-elemento antes do conteúdo do h1 */
@@ -37,6 +37,7 @@
             background: url('tiger-face-transparent-406-tiger-face-1626855.png') center center no-repeat; /* Substitua 'sua-imagem.png' pelo caminho da sua imagem */
             background-size: cover; /* Ajusta o tamanho da imagem para cobrir completamente a área */
             transform: translateX(-50%); /* Move a imagem para o centro horizontalmente */
+            z-index: 1; /* Garante que a imagem fique acima do retângulo */
         }
         p {
             color: #555; /* Cinza mais escuro */
