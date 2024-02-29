@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jogo de Adivinhação</title>
+    <title>Tiger Adivinha</title>
     <style>
         body {
             font-family: 'Arial', sans-serif;
@@ -14,30 +14,18 @@
             justify-content: center;
             min-height: 100vh;
         }
+        #header-container {
+            position: relative;
+        }
         #game-container {
             background-color: #fff; /* Cor de fundo */
             padding: 20px;
             border-radius: 8px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
             text-align: center;
-            position: relative; /* Adicionado para que a posição absoluta funcione em relação a este contêiner */
-            overflow: hidden; /* Garante que a imagem não ultrapasse o contêiner */
         }
         h1 {
             color: #3498db; /* Azul mais claro */
-        }
-        h1::before {
-            content: ""; /* Criar um pseudo-elemento antes do conteúdo do h1 */
-            display: block;
-            position: absolute;
-            top: 0;
-            left: 50%;
-            width: 200px; /* Largura da imagem */
-            height: 100px; /* Altura da imagem */
-            background: url('tiger-face-transparent-406-tiger-face-1626855.png') center center no-repeat; /* Substitua 'sua-imagem.png' pelo caminho da sua imagem */
-            background-size: cover; /* Ajusta o tamanho da imagem para cobrir completamente a área */
-            transform: translateX(-50%); /* Move a imagem para o centro horizontalmente */
-            z-index: 1; /* Garante que a imagem fique acima do retângulo */
         }
         p {
             color: #555; /* Cinza mais escuro */
@@ -67,15 +55,29 @@
             margin-top: 10px;
             color: #e74c3c; /* Vermelho mais escuro */
         }
+        #image-container {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 200px; /* Largura da imagem */
+            height: 100px; /* Altura da imagem */
+            background: url('tiger-face-transparent-406-tiger-face-1626855.png') center center no-repeat; /* Substitua 'tiger-face-transparent-406-tiger-face-1626855.png' pelo caminho da sua nova imagem */
+            background-size: cover; /* Ajusta o tamanho da imagem para cobrir completamente a área */
+            z-index: 1; /* Garante que a imagem fique acima do retângulo */
+        }
     </style>
 </head>
 <body>
-    <div id="game-container">
-        <h1>Jogo de Adivinhação</h1>
-        <p>Tente adivinhar um número entre 1 e 10:</p>
-        <input type="number" id="guessInput" autocomplete="off" autofocus>
-        <button onclick="checkGuess()">Enviar Palpite</button>
-        <p id="result"></p>
+    <div id="header-container">
+        <div id="image-container"></div>
+        <div id="game-container">
+            <h1>Tiger Adivinha</h1>
+            <p>Tente adivinhar um número entre 1 e 10:</p>
+            <input type="number" id="guessInput" autocomplete="off" autofocus>
+            <button onclick="checkGuess()">Enviar Palpite</button>
+            <p id="result"></p>
+        </div>
     </div>
 
     <script src="script.js"></script>
