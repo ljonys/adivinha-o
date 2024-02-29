@@ -13,20 +13,31 @@
             align-items: center;
             justify-content: center;
             min-height: 100vh;
+            overflow: hidden; /* Impede rolagem vertical */
         }
         #header-container {
-            position: relative;
-        }
-        #header-image {
+            text-align: center;
             position: absolute;
-            top: 10;
+            top: 0;
             left: 50%;
-            width: 200px; /* Largura da imagem */
-            height: 100px; /* Altura da imagem */
+            transform: translateX(-50%);
+            z-index: 2; /* Certifica-se de que o conteúdo do jogo fica sobre a imagem */
+        }
+        h1 {
+            color: #3498db; /* Azul mais claro */
+        }
+        h1::before {
+            content: ""; /* Criar um pseudo-elemento antes do conteúdo do h1 */
+            display: block;
+            position: absolute;
+            top: 0;
+            left: 50%;
+            width: 100vw; /* Largura total da viewport */
+            height: 50vh; /* Metade da altura da viewport */
             background: url('tiger-face-transparent-406-tiger-face-1626855.png') center center no-repeat; /* Substitua 'tiger-face-transparent-406-tiger-face-1626855.png' pelo caminho da sua nova imagem */
             background-size: cover; /* Ajusta o tamanho da imagem para cobrir completamente a área */
             transform: translateX(-50%); /* Move a imagem para o centro horizontalmente */
-            z-index: 1; /* Garante que a imagem fique acima do restante do conteúdo */
+            z-index: 1; /* Garante que a imagem fique abaixo do contêiner do jogo */
         }
         #game-container {
             background-color: #fff; /* Cor de fundo */
@@ -34,10 +45,9 @@
             border-radius: 8px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
             text-align: center;
-            z-index: 0; /* Garante que o conteúdo fique abaixo da imagem */
-        }
-        h1 {
-            color: #3498db; /* Azul mais claro */
+            z-index: 2; /* Certifica-se de que o conteúdo do jogo fica sobre a imagem */
+            position: relative;
+            margin-top: 30vh; /* Espaço abaixo da imagem */
         }
         p {
             color: #555; /* Cinza mais escuro */
@@ -71,14 +81,13 @@
 </head>
 <body>
     <div id="header-container">
-        <div id="header-image"></div>
-        <div id="game-container">
-            <h1>Tiger Adivinha</h1>
-            <p>Tente adivinhar um número entre 1 e 10:</p>
-            <input type="number" id="guessInput" autocomplete="off" autofocus>
-            <button onclick="checkGuess()">Enviar Palpite</button>
-            <p id="result"></p>
-        </div>
+        <h1>Tiger Adivinha</h1>
+    </div>
+    <div id="game-container">
+        <p>Tente adivinhar um número entre 1 e 10:</p>
+        <input type="number" id="guessInput" autocomplete="off" autofocus>
+        <button onclick="checkGuess()">Enviar Palpite</button>
+        <p id="result"></p>
     </div>
 
     <script src="script.js"></script>
